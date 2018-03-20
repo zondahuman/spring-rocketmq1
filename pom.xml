@@ -17,9 +17,6 @@
     <packaging>pom</packaging>
 
 
-
-
-
     <properties>
         <!-- 主要依赖库的版本定义 -->
         <spring.version>4.3.2.RELEASE</spring.version>
@@ -66,7 +63,6 @@
     </distributionManagement>
 
 
-
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.rocketmq/rocketmq-client -->
         <dependency>
@@ -74,7 +70,11 @@
             <artifactId>rocketmq-client</artifactId>
             <version>4.2.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-all</artifactId>
+            <version>4.2.0</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -512,7 +512,6 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>com.googlecode</groupId>
             <artifactId>reflectasm</artifactId>
@@ -666,7 +665,6 @@
     </dependencies>
 
 
-
     <profiles>
         <profile>
             <id>dev</id>
@@ -738,19 +736,6 @@
             </plugin>
         </plugins>
     </build>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </project>

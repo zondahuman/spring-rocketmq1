@@ -24,14 +24,15 @@ public class TransactionProducer {
         TransactionMQProducer producer = new TransactionMQProducer("SPEED_QUEUE");
         producer.setCheckThreadPoolMinSize(2);
         producer.setCheckThreadPoolMaxSize(2);
-        producer.setCheckRequestHoldMax(2000);
+        producer.setCheckRequestHoldMax(200);
         producer.setTransactionCheckListener(transactionCheckListener);
         producer.setNamesrvAddr("172.16.2.133:9876");
+//        producer.setNamesrvAddr("zoo2:9876");
         producer.start();
 
         String[] tags = new String[] {"TagA", "TagB", "TagC", "TagD", "TagE"};
         TransactionExecuterImpl tranExecuter = new TransactionExecuterImpl();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             try {
                 Message msg =
                         new Message("TopicTest", tags[i % tags.length], "KEY" + i,

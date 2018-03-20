@@ -23,7 +23,13 @@ http://172.16.2.133:12581
 
 
 
+nohup bin/mqbroker -n 172.16.2.133:9876 autoCreateTopicEnable=true &
+nohup bin/mqbroker -n 172.16.2.133:9876 autoCreateTopicEnable=true > ~/logs/rocketmqlogs/broker.log 2>&1 &
 
+查看所有消费组group:
+bin/mqadmin consumerProgress -n 172.16.2.133:9876
+查看指定消费组下的所有topic数据堆积情况：
+bin/mqadmin consumerProgress -n 172.16.2.133:9876 -g SPEED_QUEUE
 
 
 
